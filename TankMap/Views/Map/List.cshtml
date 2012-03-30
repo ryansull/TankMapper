@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Tank>
+@using TankMap.Models
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<table>
+@foreach (var tank in Model)
+{
+    <tr>
+        <td>@tank.Organization</td>
+        <td>@tank.TankInfo</td>
+        <td>@tank.TankName</td>
+        <td>@tank.TankAddress</td>
+        <td>@tank.City</td>
+        <td>@tank.State</td>
+        <td>@tank.Zip</td>
+        <td>@tank.TaskType</td>
+        <td>@tank.TaskStatus</td>
+        <td>@tank.FullAddress</td>
+        <td>@tank.Latitude</td>
+        <td>@tank.Longitude</td>
+    </tr>
+}
+</table>
