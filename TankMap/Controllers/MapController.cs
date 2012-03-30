@@ -29,18 +29,5 @@ namespace TankMap.Controllers
             ViewBag.tanks = output;
             return View();
         }
-
-        public ActionResult Load()
-        {
-            var dataContext = new SpreadSheetLoad();
-            dataContext.LoadTanks(_repo);
-
-            return View();
-        }
-
-        public ActionResult List()
-        {
-            return View(_repo.All());
-        }
     }
 }

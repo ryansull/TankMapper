@@ -1,0 +1,122 @@
+﻿@model TankMap.Models.Tank
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Tank</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Organization)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Organization)
+            @Html.ValidationMessageFor(model => model.Organization)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TankInfo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TankInfo)
+            @Html.ValidationMessageFor(model => model.TankInfo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TankName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TankName)
+            @Html.ValidationMessageFor(model => model.TankName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TankAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TankAddress)
+            @Html.ValidationMessageFor(model => model.TankAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.City)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.State)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.State)
+            @Html.ValidationMessageFor(model => model.State)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Zip)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Zip)
+            @Html.ValidationMessageFor(model => model.Zip)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TaskType)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TaskType)
+            @Html.ValidationMessageFor(model => model.TaskType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TaskStatus)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TaskStatus)
+            @Html.ValidationMessageFor(model => model.TaskStatus)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FullAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FullAddress)
+            @Html.ValidationMessageFor(model => model.FullAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Latitude)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Latitude)
+            @Html.ValidationMessageFor(model => model.Latitude)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Longitude)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Longitude)
+            @Html.ValidationMessageFor(model => model.Longitude)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

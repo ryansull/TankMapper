@@ -1,0 +1,20 @@
+﻿@model TankMap.Models.Tank
+
+@{
+    ViewBag.Title = "Load";
+}
+
+<h2>Upload</h2>
+
+
+@using (Html.BeginForm("Load", "Tank", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <fieldset>
+        <div class="editor-label">File:</div>
+        <input type="file" name="file"/>    
+
+        <p>
+            <input type="submit" value="Load" />
+        </p>
+    </fieldset>
+}

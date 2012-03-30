@@ -5,14 +5,26 @@ using System.Web;
 using TankMap.CSVMapping;
 using TankMap.Models;
 using FileHelpers;
+using System.IO;
 
 namespace TankMap.DataAccess
 {
     public class SpreadSheetLoad
     {
-        public List<Tank> GetTanks()
+        public List<Tank> GetTanks(HttpPostedFileBase file)
         {
-            var path = GetPathToSpreadSheet();
+            if (!Directory.Exists("c:\\temp\\"))
+            {
+                Directory.CreateDirectory("c:\\temp\\");
+            }
+            var path = "c:\\temp\\" + file.FileName;
+
+            if (file != null && file.ContentLength > 0)
+            {
+                string filePath = "c:\\temp\\";
+                file.SaveAs(path);
+            }
+
             var tanks = new List<Tank>();
 
             var engine = new FileHelperEngine(typeof(TankMapping)); 
@@ -22,13 +34,14 @@ namespace TankMap.DataAccess
             {
                 tanks.Add(new Tank(res[i].Organization, res[i].TankInfo, res[i].TankName, res[i].TankAddress, res[i].City, res[i].State, res[i].Zip, res[i].TaskType, res[i].TaskStatus, res[i].FullAddress, res[i].Latitude, res[i].Longitude, i));
             }
+            System.IO.File.Delete(path);
 
             return tanks;
         }
 
-        public void LoadTanks(IRepository<Tank> repo)
+        public void LoadTanks(IRepository<Tank> repo, HttpPostedFileBase file)
         {
-            var tanks = GetTanks();
+            var tanks = GetTanks(file);
 
             foreach (var tank in tanks)
             {
